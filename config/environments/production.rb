@@ -88,4 +88,7 @@ Rails.application.configure do
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
+
+  # devise mailer confic
+  config.action_mailer.default_url_options = { host: 'grammable-ben-kim.herokuapp.com' }
 end
