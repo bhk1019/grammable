@@ -69,12 +69,35 @@ RSpec.describe GramsController, type: :controller do
     it "should successfully show the edit page if the gram is found" do
       gram = FactoryBot.create(:gram)
       get :edit, params: { id: gram.id }
-      expect(reponse).to have_http_status(:success)
+      expect(response).to have_http_status(:success)
     end
 
     it "should return a 404 error if the gram is not found" do
       get :edit, params: { id: 'TACOCAT' }
       expect(response).to have_http_status(:not_found)
+    end
+  end
+
+  describe "grams#update action" do
+    it "should successfully update grams" do
+      gram = FactoryBot.create(:gram, message: "Initial Value")
+      patch :update, params: { id: gram.id, gram: { message: "Changed" } }
+      expect(response).to redirect_to root_path
+      gram.reload
+      expect(gram.message).to eq "Changed"
+    end
+
+    it "should return 404 if the gram cannot be found" do
+      patch :update, params: { id: "INVALID", gram: { message: 'Changed' } }
+      expect(response).to have_http_status(:not_found)
+    end
+
+    it "should render the edit form again with invalid input data" do
+      gram = FactoryBot.create(:gram, message: "Initial Value")
+      patch :update, params: { id: gram.id, gram: { message: '' } }
+      expect(response).to have_http_status(:unprocessable_entity)
+      gram.reload
+      expect(gram.message).to eq "Initial Value"
     end
   end
 
