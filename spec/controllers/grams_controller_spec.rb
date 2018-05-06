@@ -101,4 +101,19 @@ RSpec.describe GramsController, type: :controller do
     end
   end
 
+  describe "grams#destroy action" do
+    it "should successfully destroy grams" do
+      gram = FactoryBot.create(:gram)
+      delete :destroy, params: { id: gram.id }
+      expect(response).to redirect_to root_path
+      gram = Gram.find_by_id(gram.id)
+      expect(gram).to eq nil
+    end
+
+    it "should return 404 if there is no gram with the input id" do
+      delete :destroy, params: { id: "INVALID" }
+      expect(response).to have_http_status(:not_found)
+    end
+  end
+
 end
