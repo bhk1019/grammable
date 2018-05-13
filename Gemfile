@@ -69,3 +69,8 @@ end
 gem 'simple_form'
 
 gem 'devise'
+
+# Image Uploading and Storage
+gem 'carrierwave', '~> 1.0'
+gem 'figaro'
+gem 'fog-aws'
