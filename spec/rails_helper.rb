@@ -57,5 +57,6 @@ RSpec.configure do |config|
 
   # Devise
   config.include Devise::Test::ControllerHelpers, type: :controller
+  include ActionDispatch::TestProcess
   config.include Devise::Test::ControllerHelpers, type: :view
 end
