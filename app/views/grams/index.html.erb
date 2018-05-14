@@ -1,5 +1,5 @@
 <div class="col-10 offset-1 col-sm-8 offset-sm-2 col-md-6 offset-md-3">
-  <% @grams.each do |gram| %>
+  <% @grams.order(id: :desc).each do |gram| %>
     <div class="card">
       <div class="handle"><%= gram.user.email %></div>
       <div class="img-container">
