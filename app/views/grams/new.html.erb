@@ -1,7 +1,10 @@
-<h1>New Gram</h1>
+<div class="col-10 offset-1 col-sm-8 offset-sm-2 col-md-6 offset-md-3 card form">
+  <h1>Post a new Gram</h1>
 
-<%= simple_form_for @gram do |f| %>
-  <%= f.input :picture %>
-  <%= f.input :message %>
-  <%= f.submit "Post!", url: grams_path %>
-<% end %>
+  
+  <%= simple_form_for @gram do |f| %>
+    <%= f.input :picture, label: false %>
+    <%= f.input :message, label: "Caption:" %>
+    <%= f.submit "Post!", url: grams_path, class: 'btn btn-primary btn-post' %>
+  <% end %>
+</div>

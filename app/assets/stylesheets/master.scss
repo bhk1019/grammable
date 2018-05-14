@@ -25,6 +25,14 @@ body {
   font-family: 'Stylish', sans-serif;
 }
 
+.brand a {
+  color: #125688;
+}
+
+.brand a:hover {
+  text-decoration: none;
+}
+
 .top-nav .add a {
   font-weight: bold;
   color: #125688;
@@ -60,4 +68,32 @@ body {
 .card p, .card .message {
   font-size: 18px;
   margin: 20px;
+}
+
+.card.form {
+  padding: 20px;
+}
+
+label {
+  font-size: 28px;
+}
+
+input {
+  font-size: 18px;
+  font-weight: 400;
+}
+
+abbr {
+  text-decoration: none;
+}
+
+.btn-post {
+  background-color: #125688;
+  width: 100%;
+  font-size: 24px;
+  color: white;
+  margin-top: 10px;
+  border-radius: 23px;
+  border-width: 0;
+  font-family: 'Montserrat', sans-serif;;
 }
