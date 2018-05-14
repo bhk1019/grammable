@@ -1,1 +1,40 @@
 @import "bootstrap";
+@import url('https://fonts.googleapis.com/css?family=Montserrat|Stylish');
+
+body {
+  font-family: 'Montserrat', sans-serif;
+}
+
+.top-nav {
+  background-color: white;
+  border-bottom-color: #edeeee;
+  border-bottom-width: 1px;
+  border-bottom-style: solid;
+  height: 70px;
+  padding-top: 15px;
+}
+
+.top-nav .top-nav-column {
+  min-height: 54px;
+}
+
+.brand {
+  color: #125688;
+  font-size: 30px;
+  font-family: 'Stylish', sans-serif;
+}
+
+.top-nav .add a {
+  font-weight: bold;
+  color: #125688;
+  font-size: 16px;
+}
+
+.top-nav .add {
+  margin-top: 14px;
+}
+
+.img-container {
+  max-width: 100%;
+  height: auto;
+}
