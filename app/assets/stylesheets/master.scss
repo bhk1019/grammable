@@ -2,6 +2,7 @@
 @import url('https://fonts.googleapis.com/css?family=Montserrat|Stylish');
 
 body {
+  background-color: #fafafa;
   font-family: 'Montserrat', sans-serif;
 }
 
@@ -27,7 +28,8 @@ body {
 .top-nav .add a {
   font-weight: bold;
   color: #125688;
-  font-size: 16px;
+  font-size: 14px;
+  margin-left: 10px;
 }
 
 .top-nav .add {
@@ -37,4 +39,25 @@ body {
 .img-container {
   max-width: 100%;
   height: auto;
+}
+
+.card {
+  background-color: #fff;
+  border-radius: .25rem;
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.25);
+  border: 1px solid #e8e8e8;
+  margin-top: 40px;
+  padding: 0;
+}
+
+.handle {
+  margin: 10px;
+  color: #125688;
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.card p, .card .message {
+  font-size: 18px;
+  margin: 20px;
 }
