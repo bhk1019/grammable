@@ -7,8 +7,13 @@ before_action :authenticate_user!, only: [:create]
     if !user_signed_in?
       redirect_to new_user_session_path
     else
-      @gram.comments.create(comment_params)
-      redirect_to root_path
+      @comment = @gram.comments.create(comment_params)
+      if @comment.valid?
+        redirect_to root_path
+      else
+        flash[:alert] = "You cannot leave a blank comment."
+        redirect_to root_path
+      end
     end
   end
 

@@ -28,6 +28,10 @@
       <br class="clear-fix"/>
     </div>
 
+    <% flash.each do |key, value| %>
+      <div class="alert alert-<%= key %>"><%= value %></div>
+    <% end %>
+
     <% if notice.present? %>
       <p class="notice text-center"><%= notice %></p>
     <% end %>
