@@ -1,13 +1,36 @@
 <div class="col-10 offset-1 col-sm-8 offset-sm-2 col-md-6 offset-md-3">
   <% @grams.order(id: :desc).each do |gram| %>
     <div class="card">
-      <div class="handle"><%= gram.user.email %></div>
       <div class="img-container">
         <%= image_tag gram.picture, class: 'img-fluid mx-auto d-block' %>
       </div>
+      <div class="gram-actions">
+        <% if current_user && current_user == gram.user %>
+          <%= link_to "Edit", edit_gram_path(gram) %>
+          <%= link_to "Delete", gram_path(gram), method: :delete, data: { confirm: 'Are you sure you want to delete this gram?' } %>
+        <% end %>
+      </div>
       <p>
-        <%= gram.message %>
+        <b class="handle"><%= gram.user.email %></b> -- <%= gram.message %>
       </p>
+
+      <br class="clear-fix" />
+
+      <% if !gram.comments.empty? %>
+        <%= gram.comments.order(id: :desc).each do |comment| %>
+          <p>
+            <b class="handle"><%= comment.user.email %></b> -- <%= comment.message %>
+          </p>
+        <% end %>
+      <% end %>
+
+      <div class="add-comment">
+        <%= simple_form_for Comment.new, url: gram_comments_path(gram) do |f| %>
+            <%= f.input :message, label: false, placeholder: "Enter a comment" %>
+            <%= f.submit 'Post Comment', class: 'btn btn-post' %>
+        <% end %>
+      </div>
     </div>
+
   <% end %>
 </div>
