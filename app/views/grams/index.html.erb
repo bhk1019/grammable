@@ -24,12 +24,14 @@
         <% end %>
       <% end %>
 
-      <div class="add-comment">
-        <%= simple_form_for Comment.new, url: gram_comments_path(gram) do |f| %>
-            <%= f.input :message, label: false, placeholder: "Enter a comment" %>
-            <%= f.submit 'Post Comment', class: 'btn btn-post' %>
-        <% end %>
-      </div>
+      <% if current_user %>
+        <div class="add-comment">
+          <%= simple_form_for Comment.new, url: gram_comments_path(gram) do |f| %>
+              <%= f.input :message, label: false, placeholder: "Enter a comment" %>
+              <%= f.submit 'Post Comment', class: 'btn btn-post' %>
+          <% end %>
+        </div>
+      <% end %>
     </div>
 
   <% end %>
