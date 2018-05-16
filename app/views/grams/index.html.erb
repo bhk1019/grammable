@@ -17,7 +17,7 @@
       <br class="clear-fix" />
 
       <% if !gram.comments.empty? %>
-        <%= gram.comments.order(id: :desc).each do |comment| %>
+        <% gram.comments.order(id: :desc).each do |comment| %>
           <p>
             <b class="handle"><%= comment.user.email %></b> -- <%= comment.message %>
           </p>
